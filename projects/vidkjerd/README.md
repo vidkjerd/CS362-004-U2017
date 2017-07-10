@@ -1,2 +1,2 @@
 Drake Vidkjer
-This is my assignmnent-2 submission!"
+This is my assignmnent-2 submission!
