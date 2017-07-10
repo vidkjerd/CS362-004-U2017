@@ -1231,12 +1231,12 @@ int updateCoins(int player, struct gameState *state, int bonus)
   return 0;
 }
 
-//card funtions
+//card functions
 int adventureCard(struct gameState* state, int currentPlayer, int drawntreasure, int cardDrawn, int z, int temphand[])
 {
 	 while(drawntreasure<2)
 	 {
-		if (state->deckCount[currentPlayer] <1)
+		if (state->deckCount[currentPlayer] <= 1) //BUG HERE!!!!!! should be < not <=
 		{//if the deck is empty we need to shuffle discard and add to deck
 			shuffle(currentPlayer, state);
 		}
@@ -1268,7 +1268,7 @@ int smithyCard(struct gameState* state, int currentPlayer, int handPos, int card
 	}
 			
       //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+      discardCard(currentPlayer, handPos, state, 0); //BUG HERE!!! currentPlayer and handPos are swapped
       return 0;
 }
 
@@ -1308,7 +1308,8 @@ int feastCard(struct gameState* state, int temphand[], int currentPlayer, int i,
 	  }
 
 	  gainCard(choice1, state, 0, currentPlayer);//Gain the card
-	  x = 0;//No more buying cards
+	  x = 1;//No more buying cards
+	  //BUG HERE!!! x should equal 0
 
 	  if (DEBUG){
 	    printf("Deck Count: %d\n", state->handCount[currentPlayer] + state->deckCount[currentPlayer] + state->discardCount[currentPlayer]);
@@ -1336,7 +1337,7 @@ int councilRoomCard(struct gameState* state, int currentPlayer, int handPos, int
 	}
 			
       //+1 Buy
-      state->numBuys++;
+      state->numBuys--; //BUG HERE!!! should be numBuys++
 			
       //Each other player draws a card
       for (i = 0; i < state->numPlayers; i++)
