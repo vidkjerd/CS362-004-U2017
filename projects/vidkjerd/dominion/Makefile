@@ -65,7 +65,7 @@ cardtest4:
 	gcc -fprofile-arcs -ftest-coverage dominion.c cardtest4.c rngs.c -o cardtest4 -lm
 	
 	
-runTest: 
+unittestresults.out: 
 	./unittest1 &> testResults.out
 	./unittest2 >> testResults.out
 	./unittest3 >> testResults.out
