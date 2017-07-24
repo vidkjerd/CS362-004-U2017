@@ -64,11 +64,6 @@ void testme()
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    //char c;
-    //char *s;
-    //c = inputChar();
-    //s = inputString(); 
-    //printf("%d \n %c \n %s",(int)c, c, s);
     testme();
     return 0;
 }
