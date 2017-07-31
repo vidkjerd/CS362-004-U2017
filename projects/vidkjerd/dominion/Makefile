@@ -73,13 +73,20 @@ randomtestcard2:
 randomtestadventurer:
 	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestadventurer.c rngs.c -o randomtestadventurer -lm -g
 
-randomtest.out: randomtestadventurer randomtestcard1 randomtestcard2
-	
-	./randomtestadventurer
+randomtestcard1.out: randomtestcard1
 	./randomtestcard1
-	./randomtestcard2
-	gcov dominion.c
+	gcov dominion.c >> randomtestcard1.out
+	cat dominion.c.gcov >> randomtestcard1.out
 
+randomtestcard2.out: randomtestcard2
+	./randomtestcard2
+	gcov dominion.c >> randomtestcard2.out
+	cat dominion.c.gcov >> randomtestcard2.out
+	
+randomtestadventurer.out: randomtestadventurer
+	./randomtestadventurer
+	gcov dominion.c >> randomtestadventurer.out
+	cat dominion.c.gcov >> randomtestadventurer.out	
 	
 runTest: 
 	./unittest1 &> testResults.out
