@@ -36,9 +36,9 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer randomtestcard1 randomtestcard2
 	
-makeTests: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
+makeTests: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer randomtestcard1 randomtestcard2
 
 unittest1:
 	gcc -fprofile-arcs -ftest-coverage dominion.c unittest1.c rngs.c -o unittest1 -lm
@@ -64,6 +64,14 @@ cardtest3:
 cardtest4:
 	gcc -fprofile-arcs -ftest-coverage dominion.c cardtest4.c rngs.c -o cardtest4 -lm
 	
+randomtestcard1:
+	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestcard1.c rngs.c -o randomtestcard1 -lm
+	
+randomtestcard2:
+	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestcard2.c rngs.c -o randomtestcard2 -lm
+	
+randomtestadventurer:
+	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestadventurer.c rngs.c -o randomtestadventurer -lm 
 	
 runTest: 
 	./unittest1 &> testResults.out
@@ -74,6 +82,10 @@ runTest:
 	./cardtest2 >> testResults.out
 	./cardtest3 >> testResults.out
 	./cardtest4 >> testResults.out
+	
+	./randomtestadventurer >> testResults.out
+	./randomtestcard1 >> testResults.out
+	./randomtestcard2 >> testResults.out
 	
 	gcov dominion.c >> testResults.out
 	cat dominion.c.gcov >> testResults.out
