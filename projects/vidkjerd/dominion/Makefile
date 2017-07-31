@@ -65,13 +65,21 @@ cardtest4:
 	gcc -fprofile-arcs -ftest-coverage dominion.c cardtest4.c rngs.c -o cardtest4 -lm
 	
 randomtestcard1:
-	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestcard1.c rngs.c -o randomtestcard1 -lm
+	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestcard1.c rngs.c -o randomtestcard1 -lm -g
 	
 randomtestcard2:
-	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestcard2.c rngs.c -o randomtestcard2 -lm
+	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestcard2.c rngs.c -o randomtestcard2 -lm -g 
 	
 randomtestadventurer:
-	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestadventurer.c rngs.c -o randomtestadventurer -lm 
+	gcc -fprofile-arcs -ftest-coverage dominion.c randomtestadventurer.c rngs.c -o randomtestadventurer -lm -g
+
+randomtest.out: randomtestadventurer randomtestcard1 randomtestcard2
+	
+	./randomtestadventurer
+	./randomtestcard1
+	./randomtestcard2
+	gcov dominion.c
+
 	
 runTest: 
 	./unittest1 &> testResults.out
@@ -83,9 +91,9 @@ runTest:
 	./cardtest3 >> testResults.out
 	./cardtest4 >> testResults.out
 	
-	./randomtestadventurer >> testResults.out
-	./randomtestcard1 >> testResults.out
-	./randomtestcard2 >> testResults.out
+#	./randomtestadventurer >> testResults.out
+#	./randomtestcard1 >> testResults.out
+#	./randomtestcard2 >> testResults.out
 	
 	gcov dominion.c >> testResults.out
 	cat dominion.c.gcov >> testResults.out

@@ -5,7 +5,7 @@
 #include <math.h>
 #include "dominion.h"
 
-#define NUMTESTS 300000
+#define NUMTESTS 5000
 
 /*
  * Drake Vidkjer
