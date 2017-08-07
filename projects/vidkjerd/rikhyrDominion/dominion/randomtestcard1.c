@@ -59,9 +59,10 @@ int main()
 			printf("Test %d failed to play card\n", i);
 			continue;
 		}
-		if(state.handCount[curPlayer] != (curHandCount + 3))
+		if(state.handCount[curPlayer] != (curHandCount + 2))
 		{
 			printf("Test %d failed to have the correct card effect\n", i);
+			printf("Ended with %d hand count and %d prev. hand count", state.handCount[curPlayer], curHandCount);
 			continue;
 		}
 		else

@@ -1268,7 +1268,7 @@ int smithyCard(struct gameState* state, int currentPlayer, int handPos, int card
 	}
 			
       //discard card from hand
-      discardCard(currentPlayer, handPos, state, 0); //BUG HERE!!! currentPlayer and handPos are swapped
+      discardCard(handPos, currentPlayer, state, 0); //BUG HERE!!! currentPlayer and handPos are swapped
       return 0;
 }
 

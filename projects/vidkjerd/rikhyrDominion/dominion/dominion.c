@@ -76,7 +76,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
     }
   else if (numPlayers == 3)
     {
-      state->supplyCount[curse] = 20;
+      state->supplyCount[curse] = 10;
     }
   else
     {
@@ -667,7 +667,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-      while(drawntreasure<2){
+      while(drawntreasure<1){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 	  shuffle(currentPlayer, state);
 	}

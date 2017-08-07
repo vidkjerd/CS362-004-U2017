@@ -1,0 +1,23 @@
+Bug 1
+Date: 08-06-17
+Reported By: Drake Vidkjer
+Title: Problem with adventure card treasure addition
+Classification: Minor
+File: dominion.c
+Description: The adventure card only adds one treasure to the player after being played, it should add two.
+Steps to reproduce: Look at number of treasures player has, play adventurer card, look again at treasures.
+Resolution: Change line 670 of dominion.c to be < 2 instead of < 1
+
+Bug 2
+Date: 08-06-17
+Reported By: Drake Vidkjer
+Title: Wrong number of curse cards for 3 players
+Classification: Minor
+File: dominion.c
+Description: When there are 3 players in a Dominion game, the program sets the number of curse cards to 10, 
+when in actuality it should be set to 20.
+Steps to reproduce: Start Dominion game with 3 players. Check the number of curse cards.
+Resolution: Change line 79 of dominion.c so that for 3 players, the number of curse cards = 3.
+
+
+
