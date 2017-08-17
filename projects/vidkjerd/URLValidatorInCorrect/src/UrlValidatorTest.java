@@ -349,10 +349,6 @@ public class UrlValidatorTest extends TestCase {
 	}
 
    
-   /*public void testIsValid(Object[] testObjects, long options) {
-   
-   UrlValidator urlVal = new UrlValidator(null, null, options);
-   */
    public void testIsValid() {
    UrlValidator urlVal = new UrlValidator(null, null, ALLOW_ALL_SCHEMES);
    String basic_scheme = "http://";
