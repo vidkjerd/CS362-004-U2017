@@ -348,20 +348,13 @@ public class UrlValidatorTest extends TestCase {
 		System.out.println("=======================================================\n\n");
 	}
 
-   /*
-   public void testYourFirstPartition()
-   {
-	   
-   }
    
-   public void testYourSecondPartition(){
-	   
-   }
-   *
-   
-   public void testIsValid(Object[] testObjects, long options) {
+   /*public void testIsValid(Object[] testObjects, long options) {
    
    UrlValidator urlVal = new UrlValidator(null, null, options);
+   */
+   public void testIsValid() {
+   UrlValidator urlVal = new UrlValidator(null, null, ALLOW_ALL_SCHEMES);
    String basic_scheme = "http://";
    String[] basic_urls = {"www.google.com","localhost","3.141.52.96","[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]","[1080:0:0:0:8:800:200C:4171]", "[3ffe:2a00:100:7031::1]","[1080::8:800:200C:417A]","[::192.9.5.5]","[::FFFF:129.144.52.38]","[2010:836B:4179::836B:4179]"};
    //IPv6 addressing in accordance with http://www.ietf.org/rfc/rfc2732.txt
@@ -575,15 +568,6 @@ public class UrlValidatorTest extends TestCase {
 		}//j loop
 	   }//i loop 
    } //testIsValid method
-   
-   /*public void testIsValid()
-   {
-	   for(int i = 0;i<10000;i++)
-	   {
-		   
-	   }
-   }
-   */
    
    public void testAnyOtherUnitTest() {
 	   
